@@ -2,9 +2,10 @@
   "application": {
     "demoqaBookStore": {
       "url": "https://demoqa.com/books",
-      "api": "https://demoqa.com/Account/v1",
+      "api": "https://demoqa.com",
       "apiRequestUrn": {
-        "createAccount": "/User"
+        "createAccount": "/Account/v1/User",
+        "getBookInfo": "/BookStore/v1/Books"
       }
     }
   },

@@ -21,5 +21,4 @@ public class ConfigManager {
             throw new ConfigException("Data parse error. File: " + fileNameOrPath);
         }
     }
-
 }

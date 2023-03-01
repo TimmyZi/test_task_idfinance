@@ -6,6 +6,7 @@ import framework.wait.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseElement {
@@ -31,7 +32,7 @@ public abstract class BaseElement {
 
     public boolean isPresent() {
         LoggerLog.logInfo("Check " + name + " is present");
-        List<WebElement> webElements = BrowserUtil.getDriver().findElements(locator);
+        List<WebElement> webElements = getListWebElements();
         if (webElements.isEmpty()) {
             LoggerLog.logInfo(name + " not found");
             return false;
@@ -48,6 +49,14 @@ public abstract class BaseElement {
     public void waitForVisibility() {
         LoggerLog.logInfo("Waiting for " + name + " to be visible");
         wait.visibilityOfElementLocated(locator);
+    }
+
+    public List<String> getTextByElements() {
+        List<String> list = new ArrayList<>();
+        for (WebElement element : getListWebElements()) {
+            list.add(element.getText());
+        }
+        return list;
     }
 
     protected List<WebElement> getListWebElements() {

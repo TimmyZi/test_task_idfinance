@@ -19,18 +19,17 @@ public class LogInFormTest extends BaseTest {
 
     @Test
     public void logInFormTest() {
-        LoggerLog.logInfo("Test step 1");
+        LoggerLog.logInfo("LoginFormTest: step 1");
         ApiUtil.createAccount(USER_NAME, PASSWORD);
-        LoggerLog.logInfo("Test step 2");
         BrowserUtil.openUrl(DEMOQA_URL);
         BookStorePage bookStorePage = new BookStorePage();
         Assert.assertTrue(bookStorePage.isPageOpen(), "BookStore page is not open or is not opened correctly");
-        LoggerLog.logInfo("Test step 3");
+        LoggerLog.logInfo("LoginFormTest: step 3");
         BrowserUtil.scrollDown();
         bookStorePage.getLeftSideMenuForm().clickLoginButton();
         LoginPage loginPage = new LoginPage();
         Assert.assertTrue(loginPage.isPageOpen(), "Login page is not open or is not opened correctly");
-        LoggerLog.logInfo("Test step 4");
+        LoggerLog.logInfo("LoginFormTest: step 4");
         BrowserUtil.scrollDown();
         loginPage.setUserName(USER_NAME);
         loginPage.setPassword(PASSWORD);
@@ -38,12 +37,13 @@ public class LogInFormTest extends BaseTest {
         ProfilePage profilePage = new ProfilePage();
         Assert.assertTrue(profilePage.isPageOpen(), "Profile page is not open or is not opened correctly");
         Assert.assertEquals(USER_NAME, profilePage.getUserNameValue(), "User name is incorrect");
-        LoggerLog.logInfo("Test step 5");
+        LoggerLog.logInfo("LoginFormTest: step 5");
         BrowserUtil.scrollDown();
         profilePage.clickDeleteAccountButton();
         Assert.assertTrue(profilePage.getApproveWindowForm().isPageOpen(), "Approve window form is not open");
         profilePage.getApproveWindowForm().clickOkButton();
         Assert.assertTrue(AlertUtil.isAlertOpen(), "Account is not deleted");
         AlertUtil.accept();
+        LoggerLog.logInfo("LoginFormTest: done");
     }
 }
