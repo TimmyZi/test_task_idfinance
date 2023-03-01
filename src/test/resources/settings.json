@@ -1,4 +1,13 @@
 {
-  "url": "https://demoqa.com/",
-  "browser": "chrome"
+  "application": {
+    "demoqaBookStore": {
+      "url": "https://demoqa.com/books",
+      "api": "https://demoqa.com/Account/v1",
+      "apiRequestUrn": {
+        "createAccount": "/User"
+      }
+    }
+  },
+  "browser": "chrome",
+  "timeoutsDurationOfSeconds": "30"
 }

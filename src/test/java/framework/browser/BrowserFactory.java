@@ -1,11 +1,12 @@
 package framework.browser;
 
-import framework.config.ConfigManager;
 import framework.logger.LoggerLog;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import static framework.config.ConfigManager.SETTINGS;
 
 public class BrowserFactory {
 
@@ -13,7 +14,7 @@ public class BrowserFactory {
 
         WebDriver driver;
 
-        switch (ConfigManager.getSettings("browser")) {
+        switch (SETTINGS.get("browser").getAsString()) {
             case "safari" -> {
                 LoggerLog.logInfo("Create safari driver");
                 WebDriverManager.safaridriver().setup();
