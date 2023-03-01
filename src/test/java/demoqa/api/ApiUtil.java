@@ -17,17 +17,12 @@ public class ApiUtil {
     @SneakyThrows
     public static String createAccount(String userName, String password) {
         LoggerLog.logInfo("API: create account");
-        JsonObject accountData = new JsonObject();
-        accountData.addProperty("userName", userName);
-        accountData.addProperty("password", password);
         String request = API_URI + CREATE_ACCOUNT;
-        return ApiManager.post(request).body(accountData).asString().getBody();
-    }
-
-    @SneakyThrows
-    public static String createAccount(JsonObject accountData) {
-        LoggerLog.logInfo("API: create account");
-        String request = API_URI + CREATE_ACCOUNT;
-        return ApiManager.post(request).body(accountData).asString().getBody();
+        String response = ApiManager.post(request)
+                .field("userName", userName)
+                .field("password", password)
+                .asString().getBody();
+        LoggerLog.logInfo("API: Response - " + response);
+        return response;
     }
 }

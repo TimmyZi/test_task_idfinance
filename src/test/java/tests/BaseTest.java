@@ -1,24 +1,27 @@
-package tests.demoqatest;
+package tests;
 
 import demoqa.data.DemoqaData;
 import framework.browser.BrowserUtil;
+import framework.logger.LoggerLog;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import static framework.config.ConfigManager.SETTINGS;
 
-public class BaseTest {
+public abstract class BaseTest {
 
-    protected static final String DEMOQA_URL = DemoqaData.DEMOQA_DATA.get("url").getAsString();
+    protected final String DEMOQA_URL = DemoqaData.DEMOQA_DATA.get("url").getAsString();
 
     @BeforeMethod
-    public void setUpTest() {
+    public void setup() {
+        LoggerLog.logInfo("Setup");
         BrowserUtil.maximizeWindow();
         BrowserUtil.pageLoadTimeout(Integer.parseInt(SETTINGS.get("timeoutsDurationOfSeconds").getAsString()));
     }
 
     @AfterMethod
-    public void tearDownTest() {
+    public void tearDown() {
+        LoggerLog.logInfo("teardown");
         BrowserUtil.quitDriver();
     }
 }

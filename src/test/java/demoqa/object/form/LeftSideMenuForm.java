@@ -1,8 +1,8 @@
-package demoqa.object;
+package demoqa.object.form;
 
 import framework.baseform.BaseForm;
-import framework.elements.Button;
-import framework.elements.Label;
+import framework.element.Button;
+import framework.element.Label;
 import org.openqa.selenium.By;
 
 public class LeftSideMenuForm extends BaseForm {

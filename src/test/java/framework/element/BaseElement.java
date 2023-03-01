@@ -1,7 +1,8 @@
-package framework.elements;
+package framework.element;
 
 import framework.browser.BrowserUtil;
 import framework.logger.LoggerLog;
+import framework.wait.WaitUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,7 +12,7 @@ public abstract class BaseElement {
 
     protected final By locator;
     protected final String name;
-    protected final Wait wait = new Wait();
+    protected final WaitUtil wait = new WaitUtil();
 
     public BaseElement(By locator, String name) {
         this.locator = locator;
@@ -42,6 +43,11 @@ public abstract class BaseElement {
     public void waitForClickable() {
         LoggerLog.logInfo("Waiting for " + name + " to be clickable");
         wait.elementToBeClickable(locator);
+    }
+
+    public void waitForVisibility() {
+        LoggerLog.logInfo("Waiting for " + name + " to be visible");
+        wait.visibilityOfElementLocated(locator);
     }
 
     protected List<WebElement> getListWebElements() {

@@ -1,7 +1,8 @@
 package demoqa.object;
 
+import demoqa.object.form.LeftSideMenuForm;
 import framework.baseform.BaseForm;
-import framework.elements.Label;
+import framework.element.Label;
 import org.openqa.selenium.By;
 
 public class BookStorePage extends BaseForm {

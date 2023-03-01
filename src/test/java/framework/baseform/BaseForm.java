@@ -1,6 +1,6 @@
 package framework.baseform;
 
-import framework.elements.BaseElement;
+import framework.element.BaseElement;
 import framework.logger.LoggerLog;
 
 public abstract class BaseForm {
@@ -14,6 +14,7 @@ public abstract class BaseForm {
 
     public boolean isPageOpen() {
         LoggerLog.logInfo("Check " + name + " is open");
+        uniqueElement.waitForVisibility();
         return uniqueElement.isPresent();
     }
 }
