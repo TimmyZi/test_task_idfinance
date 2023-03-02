@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 public class ApproveWindowForm extends BaseForm {
 
-    private static final Label approveWindowLabel = new Label(By.xpath("//div[contains(@class, 'modal-content')]"), "Approve window Locator");
+    private static final Label approveWindowLabel = new Label(By.xpath("//div[contains(@class, 'modal-content')]"), "Approve window Label");
     private final Button okButton = new Button(By.id("closeSmallModal-ok"), "Ok Button");
 
     public ApproveWindowForm() {

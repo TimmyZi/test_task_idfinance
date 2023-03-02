@@ -4,6 +4,7 @@ import framework.element.BaseElement;
 import framework.logger.LoggerLog;
 
 public abstract class BaseForm {
+
     protected BaseElement uniqueElement;
     protected String name;
 
